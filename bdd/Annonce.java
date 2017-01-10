@@ -24,7 +24,7 @@ public class Annonce {
 		return id;
 	}
 	
-	public String getDate(String date){
+	public String getDate(){
 		return date;
 	}
 	

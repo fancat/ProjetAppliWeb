@@ -1,5 +1,7 @@
 package projetAppli;
 
+
+
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -19,6 +21,7 @@ public class Utilisateur {
 	String prenom;
 	String identifiant;
 	String adMail;
+	String mdp;
 	
 	@ManyToMany
 	Collection<Instrument> instruments;
@@ -45,6 +48,10 @@ public class Utilisateur {
 	
 	public String getAdresseMail(){
 		return adMail;
+	}
+	
+	public String getMotDePasse(){
+		return mdp;
 	}
 	
 	public Collection<Instrument> getInstruments(){
@@ -76,12 +83,20 @@ public class Utilisateur {
 		this.adMail = adMail;
 	}
 	
+	public void setMotDePasse(String mdp){
+		this.mdp = mdp;
+	}
+	
 	public void setInstruments(Collection<Instrument> instruments){
 		this.instruments = instruments;
 	}
 	
 	public void ajoutInstrument(Instrument inst){
 		instruments.add(inst);
+	}
+	
+	public void retireInstrument(Instrument inst){
+		instruments.remove(inst);
 	}
 	public void setNotifications(Collection<Notification> notifications){
 		this.notifications = notifications;

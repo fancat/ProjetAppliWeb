@@ -1,3 +1,4 @@
+@CHARSET "UTF-8";
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -11,8 +12,6 @@ html {
 }
 body {
   margin: 0;
-  background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
-  background-size: cover;
 }
 article,
 aside,
@@ -1189,10 +1188,6 @@ h6,
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
-}
-h5
-{
-	color :white;
 }
 h1 small,
 h2 small,
@@ -2516,7 +2511,6 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
-  color : white;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -6760,5 +6754,16 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+.stylish-input-group .input-group-addon{
+    background: white !important; 
 }
-/*# sourceMappingURL=bootstrap.css.map */
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+/

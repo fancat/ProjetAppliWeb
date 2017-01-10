@@ -50,6 +50,11 @@ public class Serv extends HttpServlet {
 			facade.ajoutUtilisateur(nom, prenom,mail,identifiant,motDePasse);
 			request.getRequestDispatcher("index.html").forward(request, response);
 		}
+		
+		if (op.equals("explorer annonces")) {
+			request.setAttribute("listeannonces", facade.listeAnnonces());
+			request.getRequestDispatcher("liste.jsp").forward(request, response);
+		}
 
 	}
 

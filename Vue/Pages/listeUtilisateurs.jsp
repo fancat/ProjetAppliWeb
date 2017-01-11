@@ -98,6 +98,7 @@
                 	<table class="table">
   						<thead>
     						<tr>
+      						<th></th>
       						<th>id</th>
       						<th>Identifiant</th>
       						<th>Addresse Mail</th>
@@ -106,8 +107,9 @@
   						</thead>
   						<tbody>
     						<tr>
+      						<th><img alt="" src="images/user-icon.png"/></th>
       						<th scope="row">1</th>
-      						<td><img alt="" src="images/user-icon.png">Mchristi</td>
+      						<td>Mchristi</td>
       						<td>m.c@gmail.fr</td>
       						<td>Maeva</td>
     						</tr>

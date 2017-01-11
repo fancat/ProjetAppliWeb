@@ -21,7 +21,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Entrez vos données pour vous connecter.</h5>
-					<form class="" method="post" action="#">
+					<form class="" method="post" action="ServConnection">
 
 
 						<div class="form-group">
@@ -51,9 +51,10 @@
 						</div>
 						<h5> Pas encore membre?</h5>
 						<div class="form-group ">
-							<a href="login.html" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">inscrivez-vous gratuitement</a>
+							<a href="inscription.html" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">inscrivez-vous gratuitement</a>
 						</div>
 						
+						<input type="hidden" name="op" value="connexion">
 					</form>
 				</div>
 			</div>
@@ -63,6 +64,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-<input type="hidden" name="op" value="connexion">
 	</body>
 </html>

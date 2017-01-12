@@ -64,8 +64,24 @@ public class Facade {
 		return em.createQuery("from Utilisateur", Utilisateur.class).getResultList();
 	}
 	
+	
 	public Collection<Instrument> listeInstrument(){
 		return em.createQuery("from Instrument", Instrument.class).getResultList();
+	}
+	
+	public Collection<Annonce> listeAnnonces(){
+		return em.createQuery("from Annonce", Annonce.class).getResultList();
+	}
+	
+	public boolean inscrit(String identifiant, String motDePasse){
+		Collection<Utilisateur> inscrits = em.createQuery(
+			    "SELECT u FROM Utilisateur u WHERE u.identifiant LIKE :identifiant and u.mdp LIKE:motDePasse");
+		if (inscrits.size()==1){
+			return(true);
+		}
+		else{
+			return(false);
+		}
 	}
 	
 }

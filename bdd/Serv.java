@@ -55,6 +55,11 @@ public class Serv extends HttpServlet {
 			request.setAttribute("listeannonces", facade.listeAnnonces());
 			request.getRequestDispatcher("liste.jsp").forward(request, response);
 		}
+		
+		if (op.equals("connexion")){
+			request.setAttribute("listepersonnes", facade.listeUtilisateur());
+		
+		}
 
 	}
 

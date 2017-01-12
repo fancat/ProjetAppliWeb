@@ -58,7 +58,9 @@ public class Serv extends HttpServlet {
 		
 		if (op.equals("connexion")){
 			request.setAttribute("listepersonnes", facade.listeUtilisateur());
-		
+			String identifiant = request.getParameter("username");
+			String motDePasse = request.getParameter("password");
+			request.setAttribute("inscrit",facade.inscrit(identifiant, motDePasse));
 		}
 
 	}

@@ -47,7 +47,16 @@
 
 
 						<div class="form-group ">
-							<a href="" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">connexion</a>
+						<% String redirection;
+							boolean inscrit =(boolean) request.getAttribute("inscrit");
+						   if (inscrit){
+							   redirection = "indexLogged.html";
+						   }else {
+								   redirection = "inscription.html";
+							   }
+							%>
+						}
+							<a href=redirection target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">connexion</a>
 						</div>
 						<h5> Pas encore membre?</h5>
 						<div class="form-group ">

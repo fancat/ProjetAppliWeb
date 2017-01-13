@@ -21,14 +21,14 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Entrez vos données pour vous inscrire.</h5>
-					<form class="" method="post" action="#">
+					<form class="" method="post" action="Serv">
 						
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Nom</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Entrez votre nom"/>
+									<input type="text" class="form-control" name="nom" id="name"  placeholder="Entrez votre nom"/>
 								</div>
 							</div>
 						</div>
@@ -38,7 +38,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Entrez votre prénom"/>
+									<input type="text" class="form-control" name="prenom" id="name"  placeholder="Entrez votre prénom"/>
 								</div>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Entrez votre identifiant"/>
+									<input type="text" class="form-control" name="identifiant" id="username"  placeholder="Entrez votre identifiant"/>
 								</div>
 							</div>
 						</div>
@@ -69,7 +69,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
+									<input type="password" class="form-control" name="motdepasse" id="password"  placeholder="Entrez votre mot de passe"/>
 								</div>
 							</div>
 						</div>
@@ -79,15 +79,15 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirmez votre mot de passe"/>
+									<input type="password" class="form-control" name="confirmer" id="confirm"  placeholder="Confirmez votre mot de passe"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<a href="" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">S'inscrire</a>
+							<input type="submit" value="S'inscrire" id="button" class="btn btn-primary btn-lg btn-block login-button"/>
 						</div>
-						
+						<input type="hidden" name="op" value="inscription">
 					</form>
 				</div>
 			</div>
@@ -98,6 +98,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-<input type="hidden" name="op" value="inscription">
+
 	</body>
 </html>

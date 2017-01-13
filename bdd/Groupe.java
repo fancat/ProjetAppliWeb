@@ -7,7 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Groupe {
@@ -17,7 +17,7 @@ public class Groupe {
 	String date;
 	String lieu;
 	
-	@OnetoMany(mappedBy="groupes")
+	@ManyToMany(mappedBy="groupes", fetch = FetchType.EAGER)
 	Collection<Utilisateur> participants;
 	
 

@@ -4,6 +4,7 @@ import java.util.Collection;
 
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,9 @@ public class Instrument {
 	
 	@ManyToMany(mappedBy="instruments", fetch = FetchType.EAGER)
 	Collection<Utilisateur> owners;
-	
+
+	@ManyToMany
+	Collection<Utilisateur> annonces;
 
 	
 	public int getId(){

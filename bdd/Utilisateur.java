@@ -1,11 +1,8 @@
 package projetAppli;
 
-
-
 import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,13 +12,13 @@ import javax.persistence.ManyToMany;
 public class Utilisateur {
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)  
-	int id;
-	String nom;
-	String prenom;
-	String identifiant;
-	String adMail;
-	String mdp;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)  
+	private int id;
+	private String nom;
+	private String prenom;
+	private String identifiant;
+	private String adMail;
+	private String mdp;
 	
 	@ManyToMany
 	Collection<Instrument> instruments;
@@ -29,6 +26,12 @@ public class Utilisateur {
 	@ManyToMany
 	Collection<Notification> notifications;
 	
+	@ManyToMany
+	Collection<Groupe> groupes;
+	
+	public Utilisateur(){
+		super();
+	}
 	
 	public int getId(){
 		return id;
@@ -46,11 +49,11 @@ public class Utilisateur {
 		return prenom;
 	}
 	
-	public String getAdresseMail(){
+	public String getAdMail(){
 		return adMail;
 	}
 	
-	public String getMotDePasse(){
+	public String getMdp(){
 		return mdp;
 	}
 	
@@ -60,6 +63,10 @@ public class Utilisateur {
 	
 	public Collection<Notification> getNotifications(){
 		return notifications;
+	}	
+	
+	public Collection<Groupe> getGroupes(){
+		return groupes;
 	}	
 	
 	
@@ -79,26 +86,29 @@ public class Utilisateur {
 		this.prenom = prenom;
 	}
 	
-	public void setAdressMail(String adMail){
+	public void setAdMail(String adMail){
 		this.adMail = adMail;
 	}
 	
-	public void setMotDePasse(String mdp){
+	public void setMdp(String mdp){
 		this.mdp = mdp;
 	}
 	
 	public void setInstruments(Collection<Instrument> instruments){
 		this.instruments = instruments;
 	}
-	
-	public void ajoutInstrument(Instrument inst){
-		instruments.add(inst);
-	}
-	
-	public void retireInstrument(Instrument inst){
-		instruments.remove(inst);
-	}
+//	
+//	public void ajoutInstrument(Instrument inst){
+//		instruments.add(inst);
+//	}
+//	
+//	public void retireInstrument(Instrument inst){
+//		instruments.remove(inst);
+//	}
 	public void setNotifications(Collection<Notification> notifications){
 		this.notifications = notifications;
+	}	
+	public void setGroupes(Collection<Groupe> groupes){
+		this.groupes = groupes;
 	}	
 }

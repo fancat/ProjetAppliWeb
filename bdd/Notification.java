@@ -16,7 +16,7 @@ public class Notification {
 	int id;
 	String message;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="notifications", fetch = FetchType.EAGER)
 	Collection<Utilisateur> invites;
 	
 	public int getId(){

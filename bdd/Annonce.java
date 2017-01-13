@@ -17,7 +17,7 @@ public class Annonce {
 	String date;
 	String description;
 	
-	@OneToMany
+	@ManyToMany(mappedBy="annonces", fetch = FetchType.EAGER)
 	Collection<Instrument> instrus;
 	
 	public int getId(){

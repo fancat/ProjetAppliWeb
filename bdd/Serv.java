@@ -57,10 +57,19 @@ public class Serv extends HttpServlet {
 		}
 		
 		if (op.equals("connexion")){
-			request.setAttribute("listepersonnes", facade.listeUtilisateur());
+			//request.setAttribute("listepersonnes", facade.listeUtilisateur());
 			String identifiant = request.getParameter("username");
 			String motDePasse = request.getParameter("password");
-			request.setAttribute("inscrit",facade.inscrit(identifiant, motDePasse));
+			//request.setAttribute("inscrit",facade.inscrit(identifiant, motDePasse));
+			boolean inscrit = (boolean) facade.inscrit(identifiant, motDePasse);
+			if (inscrit){
+				request.getRequestDispatcher("indexLogged.html").forward(request, response);
+			}
+			else{
+				request.getRequestDispatcher("inscription.html").forward(request, response);
+			}
+			
+
 		}
 
 	}

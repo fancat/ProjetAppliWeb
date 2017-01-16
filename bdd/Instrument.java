@@ -49,4 +49,8 @@ public class Instrument {
 	public void setOwners(Collection<Utilisateur> owners){
 		this.owners = owners;
 	}
+	
+	public void addOwner(Utilisateur u){
+		owners.add(u);
+	}
 }

@@ -13,9 +13,9 @@
 Collection<Annonce> listeannonces = (Collection<Annonce>)request.getAttribute("listeannonces");
 for (Annonce a : listeannonces) {
 	out.println(a.getDate() + " " + a.getDescr()+"<br>");
-	for (Instrument i : a.getInstrus()) {
+	/*for (String i : a.getInstrus()) {
 		out.println("&nbsp;&nbsp;"+i.getType()+"<br>");
-}}
+}*/}
 %>
 
 </body>

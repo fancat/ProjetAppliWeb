@@ -1,6 +1,7 @@
 package projetAppli;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Serv
@@ -18,6 +20,7 @@ public class Serv extends HttpServlet {
        
 	@EJB
 	Facade facade;
+	
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,20 +43,25 @@ public class Serv extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String op =  request.getParameter("op");
-		
+		HttpSession session = request.getSession();
 		if (op.equals("inscription")) {
-			String nom = request.getParameter("name");
-			String prenom = request.getParameter("firstname");
+			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
 			String mail = request.getParameter("email");
-			String identifiant = request.getParameter("username");
-			String motDePasse = request.getParameter("password");
-			facade.ajoutUtilisateur(nom, prenom,mail,identifiant,motDePasse);
-			request.getRequestDispatcher("index.html").forward(request, response);
+			String identifiant = request.getParameter("identifiant");
+			String motDePasse = request.getParameter("motdepasse");
+			String mdp = request.getParameter("confirmer");
+			facade.ajoutUtilisateur(nom, prenom,identifiant,motDePasse,mail);
+			if (motDePasse.equals(mdp)){
+				request.getRequestDispatcher("index.html").forward(request, response);
+			}else{
+				request.getRequestDispatcher("inscrEchoue.html").forward(request, response);
+			}
 		}
 		
 		if (op.equals("explorer annonces")) {
 			request.setAttribute("listeannonces", facade.listeAnnonces());
-			request.getRequestDispatcher("liste.jsp").forward(request, response);
+			request.getRequestDispatcher("listeAnnonces.jsp").forward(request, response);
 		}
 		
 		if (op.equals("connexion")){
@@ -63,14 +71,37 @@ public class Serv extends HttpServlet {
 			//request.setAttribute("inscrit",facade.inscrit(identifiant, motDePasse));
 			boolean inscrit = (boolean) facade.inscrit(identifiant, motDePasse);
 			if (inscrit){
-				request.getRequestDispatcher("indexLogged.html").forward(request, response);
+				session.setAttribute("identifiant", identifiant);
+				request.setAttribute("identifiant",identifiant);
+				session.setAttribute("listeinstruments", facade.listeInstrument());
+				request.getRequestDispatcher("indexLogged.jsp").forward(request, response);
 			}
 			else{
-				request.getRequestDispatcher("inscription.html").forward(request, response);
+				request.getRequestDispatcher("pasInscrit.html").forward(request, response);
 			}
 			
-
 		}
+
+		if (op.equals("Ajouter un instrument")){
+			String type = request.getParameter("typeInstru");
+			facade.ajoutIns(type);
+			String ident= (String) session.getAttribute("identifiant");
+			request.setAttribute("identifiant",ident);
+			facade.associer(type, ident);
+			request.getRequestDispatcher("indexLogged.jsp").forward(request,response);			
+		}
+		
+		if (op.equals("Déposer une annonce")){
+			request.setAttribute("listeinstruments", facade.listeInstrument());
+			String date = request.getParameter("date");
+			String description = request.getParameter("description");
+			String instrus = request.getParameter("instrus");
+			//facade.ajoutAnnonce(date, description, instrus);
+			request.getRequestDispatcher("index.html").forward(request,response);
+		}
+		
+		
+
 
 	}
 

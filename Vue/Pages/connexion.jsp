@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5>Entrez vos donnï¿½es pour vous connecter.</h5>
+				<h5>Entrez vos données pour vous connecter.</h5>
 					<form class="" method="post" action="ServListe">
 
 

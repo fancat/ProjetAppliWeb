@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -48,8 +49,8 @@ public class Annonce {
 		this.description = descr;
 	}
 	
-	public void setInstrus(Collection<Instrument> instrus){
-		this.instrus = instrus;
+	public void setInstrus(Collection<Instrument> instrus2){
+		this.instrus = instrus2;
 	}
 	
 	

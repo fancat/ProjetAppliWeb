@@ -97,6 +97,10 @@ public class Utilisateur {
 	public void setInstruments(Collection<Instrument> instruments){
 		this.instruments = instruments;
 	}
+	
+	public void addInstru(Instrument instru){
+		instruments.add(instru);
+	}
 //	
 //	public void ajoutInstrument(Instrument inst){
 //		instruments.add(inst);
@@ -107,7 +111,11 @@ public class Utilisateur {
 //	}
 	public void setNotifications(Collection<Notification> notifications){
 		this.notifications = notifications;
-	}	
+	}
+	
+	public void addNotif(Notification notif){
+		notifications.add(notif);
+	}
 	public void setGroupes(Collection<Groupe> groupes){
 		this.groupes = groupes;
 	}	

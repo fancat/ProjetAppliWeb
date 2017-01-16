@@ -46,13 +46,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="inscription.html"><strong>Inscrivez-vous</strong></a>
+                        <a href="login.html"><strong>Profil</strong></a>
                     </li>
                     <li>
-                        <a href="connexion.html">Connectez-vous</a>
+                        <a href="connection.html">Notifications</a>
                     </li>
                     <li>
-                        <a href="propos.html">Ã€ propos du site</a>
+                        <a href="propos.html">À propos du site</a>
                     </li>
                     <li>
                         <a href="contact.html">Contact</a>
@@ -78,8 +78,9 @@
                 	<div class="row">
                 		<div class="list-group">
                     		<a href="listeAnnonces.jsp" class="list-group-item active">Explorez les annonces</a>
-                    		<a href="connexion.html" class="list-group-item">Recherchez un utilisateur</a>
-                    		<a href="connexion.html" class="list-group-item">CrÃ©ez votre annonce</a>
+                    		<a href="#" class="list-group-item">Recherchez un utilisateur</a>
+                    		<a href="creerAnnonce.jsp" class="list-group-item">Déposer une annonce</a>
+                    		<a href="ajoutInstru.jsp" class="list-group-item">Ajouter un instrument</a>                    		
                 		</div>
                 		<div class="input-group stylish-input-group">
                     		<input type="text" class="form-control"  placeholder="Rechercher rapidement" >
@@ -101,13 +102,14 @@
                 </div>
 
                 <div class="well">
-                    <h1>Bienvenue sur MeeticMusique !</h1>
+                <h1><%out.println(request.getAttribute("identifiant"));%><h1>
+                    
                 </div>
                 <div class="well">
-					<h4>Vous souhaitez <em>jouer de la musique Ã  plusieurs</em> mais il vous manque des musiciens ?</h4>
-					<h3>Vous Ãªtes bien tombÃ©s !</h3>
-					<p>Ici vous trouverez les musiciens qui vous manquent pour complÃ©ter votre groupe de musique.</p>
-					<p>Jouez lors d'un Ã©venement ou juste occasionellement.</p>
+					<h4>Vous souhaitez <em>jouer de la musique à plusieurs</em> mais il vous manque des musiciens ?</h4>
+					<h3>Vous êtes bien tombés !</h3>
+					<p>Ici vous trouverez les musiciens qui vous manquent pour compléter votre groupe de musique.</p>
+					<p>Jouer lors d'un évenement ou juste occasionellement.</p>
                  
                     <hr>
                 </div>

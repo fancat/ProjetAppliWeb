@@ -36,6 +36,49 @@ public class Facade {
 		Collection<Instrument> instrus = u.getInstruments();
 		instrus.add(i);
 		u.setInstruments(instrus);
+		em.persist(u);
+	}
+	
+	public void ajoutAnnonce(String date, String description, Collection<Instrument> instrus){
+		Annonce a = new Annonce();
+		a.setDate(date);
+		a.setDescr(description);
+		a.setInstrus(instrus);
+		em.persist(a);
+	}
+	
+	public void ajoutNotification(String message){
+		Notification n = new Notification();
+		n.setMessage(message);
+		em.persist(n);
+	}
+	
+	public void ajoutIns(String type){
+		Instrument i = new Instrument();
+		i.setType(type);
+		em.persist(i);
+		
+	}
+	
+	public void associer(String typeInstru, String identifiant){
+		Collection<Utilisateur> utilisateurs = em.createQuery("from Utilisateur", Utilisateur.class).getResultList();
+		Utilisateur u1= null;
+		for (Utilisateur u: utilisateurs){
+			if(u.getIdentifiant().equals(identifiant)){
+				u1 = u;
+			}
+		}
+		Collection<Instrument> instrus = em.createQuery("from Instrument", Instrument.class).getResultList();
+		Instrument i1 = null;
+		for(Instrument i : instrus){
+			if(i.getType().equals(typeInstru)){
+				i1=i;
+			}
+		}
+		u1.addInstru(i1);
+		i1.addOwner(u1);
+		
+		
 	}
 	
 	public void enleverCompetence(int idUtilisateur,int idInstrument){
@@ -44,6 +87,7 @@ public class Facade {
 		Collection<Instrument> instrus = u.getInstruments();
 		instrus.remove(i);
 		u.setInstruments(instrus);
+		em.persist(u);
 	}
 	
 	public void changerMotDePasse(int idUtilisateur, String mdp){
@@ -81,13 +125,16 @@ public class Facade {
 	}
 
 	public boolean inscrit(String identifiant, String motDePasse) {
-		Collection<Utilisateur> inscrits = (Collection<Utilisateur>) em.createQuery("SELECT u FROM Utilisateur u WHERE u.identifiant LIKE :identifiant and u.mdp LIKE:motDePasse");
-		if (inscrits.size()==1){
-			return(true);
+		Collection<Utilisateur> inscrits = (Collection<Utilisateur>) em.createQuery("from Utilisateur", Utilisateur.class).getResultList();
+		boolean res=false;
+		
+		for(Utilisateur u:inscrits){
+			if ((u.getIdentifiant()).equals(identifiant) && (u.getMdp()).equals(motDePasse)){
+				res = true;
+			}
 		}
-		else{
-			return(false);
-		}
+        return(res);
+		
 
 	}
 	
